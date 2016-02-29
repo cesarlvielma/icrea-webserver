@@ -1,0 +1,298 @@
+{
+  "data": {
+    "aircraft": [],
+    "departament": [],
+    "flight": [],
+    "person": [
+      {
+        "firstName": "Leonardo",
+        "lastName": "Pernia",
+        "id_number": "19997728",
+        "email": "leonardo@gmail.com",
+        "phone": "+584147394318",
+        "address": "Merida",
+        "createdAt": "2016-02-29T13:54:39.919Z",
+        "updatedAt": "2016-02-29T13:54:39.919Z",
+        "id": 5
+      }
+    ],
+    "place": [],
+    "task": [],
+    "user": [],
+    "task_dependent_tasks_task__task_dependent_tasks": []
+  },
+  "schema": {
+    "aircraft": {
+      "identifier": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "departament": {
+      "name": {
+        "type": "string"
+      },
+      "director_info": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "director_info"
+      },
+      "place_info": {
+        "type": "integer",
+        "model": "place",
+        "foreignKey": true,
+        "alias": "place_info"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "flight": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "flight_creator_info": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "flight_creator_info"
+      },
+      "creation_date": {
+        "type": "datetime"
+      },
+      "arrival_place_info": {
+        "type": "integer",
+        "model": "place",
+        "foreignKey": true,
+        "alias": "arrival_place_info"
+      },
+      "departure_place_info": {
+        "type": "integer",
+        "model": "place",
+        "foreignKey": true,
+        "alias": "departure_place_info"
+      },
+      "departure_time": {
+        "type": "datetime"
+      },
+      "arrival_time": {
+        "type": "datetime"
+      },
+      "aircraft_info": {
+        "type": "integer",
+        "model": "aircraft",
+        "foreignKey": true,
+        "alias": "aircraft_info"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "person": {
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "place": {
+      "name": {
+        "type": "string"
+      },
+      "director_info": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "director_info"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "task": {
+      "flight_info": {
+        "type": "integer",
+        "model": "flight",
+        "foreignKey": true,
+        "alias": "flight_info"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "planing",
+          "in_action",
+          "finished",
+          "template"
+        ],
+        "defaultsTo": "template"
+      },
+      "optional": {
+        "type": "boolean"
+      },
+      "departament_info": {
+        "type": "integer",
+        "model": "departament",
+        "foreignKey": true,
+        "alias": "departament_info"
+      },
+      "priority": {
+        "type": "integer"
+      },
+      "start_time": {
+        "type": "datetime"
+      },
+      "finish_time": {
+        "type": "datetime"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "person_info": {
+        "type": "integer",
+        "model": "person",
+        "foreignKey": true,
+        "alias": "person_info"
+      },
+      "task_info": {
+        "type": "integer",
+        "model": "task",
+        "foreignKey": true,
+        "alias": "task_info"
+      },
+      "departament_info": {
+        "type": "integer",
+        "model": "departament",
+        "foreignKey": true,
+        "alias": "departament_info"
+      },
+      "disponibility": {
+        "type": "boolean"
+      },
+      "visibility": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "task_dependent_tasks_task__task_dependent_tasks": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "task_dependent_tasks": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "task",
+        "on": "id",
+        "via": "task_dependent_tasks_task"
+      },
+      "task_dependent_tasks_task": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "task",
+        "on": "id",
+        "via": "task_dependent_tasks"
+      }
+    }
+  },
+  "counters": {
+    "aircraft": {},
+    "departament": {},
+    "flight": {},
+    "person": {
+      "id": 5
+    },
+    "place": {
+      "id": 3
+    },
+    "task": {},
+    "user": {
+      "id": 2
+    },
+    "task_dependent_tasks_task__task_dependent_tasks": {}
+  }
+}
