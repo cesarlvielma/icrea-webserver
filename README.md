@@ -1,12 +1,9 @@
 # icrea-webserver
 
-1) Person :
-
-
-Create
-
-POST localhost:1337/icrea-webserver/person
-
+    1) Person :
+      
+    Create
+      POST localhost:1337/icrea-webserver/person
         first_name 
         last_name 
         id_number
@@ -15,10 +12,9 @@ POST localhost:1337/icrea-webserver/person
         email
         phone
         address
-
-Show all persons
-
-GET localhost:1337/icrea-webserver/person
+          
+    Show all persons
+      GET localhost:1337/icrea-webserver/person
 
 Show 1 person
 GET localhost:1337/icrea-webserver/person/id
